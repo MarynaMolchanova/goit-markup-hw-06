@@ -284,19 +284,29 @@ p {
 .form-field input {
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
-  padding-left: 12px;
+  padding-left: 42px;
   padding-top: 11px;
   padding-bottom: 11px;
+
+  outline: none;
+
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-field input:focus,
+.form-field input:hover {
+  border: 1px solid var(--accents);
 }
 
 .modal-icon {
   position: absolute;
 
-  top: 32px;
+  top: 29px;
   left: 10px;
 }
 
-.modal-icon:focus {
+.form-field input:focus ~ .modal-icon,
+.form-field input:hover ~ .modal-icon {
   fill: var(--accents);
 }
 
@@ -306,6 +316,11 @@ p {
   padding-left: 12px;
   padding-top: 11px;
   padding-bottom: 11px;
+  height: 120px;
+
+  outline: none;
+
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-field textarea::placeholder {
@@ -315,6 +330,11 @@ p {
   line-height: 1.17;
   letter-spacing: 0.01em;
   color: rgba(117, 117, 117, 0.5);
+}
+
+.form-field textarea:hover,
+.form-field textarea:focus {
+  border: 1px solid var(--accents);
 }
 
 .field {
@@ -329,11 +349,19 @@ p {
   line-height: 1.71;
   letter-spacing: 0.03em;
   color: var(--contacts-color);
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  padding-left: 14px;
 }
 
 .umovu {
   color: var(--accents);
   text-decoration-line: underline;
+
+  padding-left: 5px;
 }
 
 .button-modal {
@@ -373,12 +401,13 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 4px;
+
+  padding: 40px;
+  box-sizing: border-box;
 }
 
 .modal-title {
-  padding-top: 40px;
   margin-bottom: 12px;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -386,7 +415,7 @@ p {
   text-align: center;
   letter-spacing: 0.03em;
 
-  color: #212121;
+  color: var(--primary-text-color);
 }
 
 .close-button {
@@ -400,9 +429,58 @@ p {
   padding: 0;
 }
 
-.close {
+.closes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  top: 8px;
+  right: 8px;
   height: 30px;
   width: 30px;
+
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.closes svg {
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.closes:hover,
+.closes:focus {
+  border: 1px solid var(--accents);
+}
+
+.closes:hover svg,
+.closes:focus svg {
+  fill: var(--accents);
+}
+
+.checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.icon-check {
+  display: inline-block;
+
+  margin-right: 7px;
+  border: 2px solid var(--primary-text-color);
+  border-radius: 4px;
+}
+
+.checkbox:checked + .icon-check {
+  border: 2px solid var(--accents);
+  background-color: var(--accents);
+  background-image: url("../images/icons.svg");
 }
 
 .container.offers {
